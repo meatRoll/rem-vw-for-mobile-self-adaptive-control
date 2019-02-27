@@ -1,0 +1,26 @@
+$vw_fontsize: 75; //rem单位换算： 75px（这个大小基于设计稿，可自行设定，一般为设计稿宽度/10）
+$vw_design: 750; //设计稿宽度尺寸   （单位: px）
+
+// px换算rem的函数
+@function rem($px) {
+  @return ($px / $vw_fontsize) * 1rem;
+}
+
+//根元素字体大小
+html {
+  font-size: ($vw_fontsize / ($vw_design / 2)) * 100vw;
+
+  //通过媒体查询限制根元素字体极值
+  @media screen and (max-width: 320px) {
+    font-size: 64px;
+  }
+  @media screen and (min-width: 540px) {
+    font-size: 108px;
+  }
+}
+
+//body加上宽度限制，避免默认100%宽度的块级元素跟随body过大过小
+body {
+  max-width: 540px;
+  min-width: 320px;
+}
