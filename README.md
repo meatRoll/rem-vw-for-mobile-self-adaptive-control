@@ -1,2 +1,1 @@
-# rem-vw-
-rem vw
+# 基于rem与vw的移动端自适应解决方案
